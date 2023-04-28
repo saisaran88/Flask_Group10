@@ -1,0 +1,498 @@
+<html>
+    <head>
+        <title>Continental Menu</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'CSS/test.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>        
+        <div class="displaynav">
+            <!--
+                style="top: 10; right: 100; position: absolute;
+                style="top: 10; right: 250; position: absolute;
+                style="top: 10; right: 250; position: absolute;
+            -->
+            <a href= "{{ url_for('home') }}" ><i class="fa fa-home"></i></a>
+            <a href="{{ url_for('chart') }}" >Reviews</a>
+            <a href="#order" onclick = "getCartItems()" ><i class="fa fa-shopping-cart"></i></a>
+        </div>
+        <div class="display">
+            <i><h4>VEGETERIAN</h4></i>
+        </div>
+        <div>
+            <i><h5>Starters</h5></i>
+        </div>
+        <div class="image-container">
+            <div class="circle">
+                <img src="{{ url_for('static', filename = 'images/burger.jpg') }}"alt="Veg spicy burger">
+                <p id = "p_Veg_spicy_burger">Veg Spicy Burger</p>
+                <p id = "price_Veg_spicy_burger">$12.99</p>
+                <input type="number" name="" id="Quantity_Veg_spicy_burger" placeholder="Please enter the Quantity"><br>
+                <button id = "btn_veg_spicy_burger" 
+                onclick="add_to_cart('Veg Spicy Burger',
+                document.getElementById('Quantity_Veg_spicy_burger').value,
+                12.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename = 'images/mashed potato fries.jpg') }}" alt="Mashed potato Fries">
+                <p>Mashed Potato Fries</p>
+                <p id = "price_Mashed_Potato_Fries">$11.99</p>
+                <input type="number" name="" id="Quantity_Mashed_Potato_Fries" placeholder="Please enter the Quantity"><br>
+                <button id = "btn_Mashed_Potato_Fries" 
+                onclick="add_to_cart('Mashed Potato Fries',
+                document.getElementById('Quantity_Mashed_Potato_Fries').value,
+                11.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src= "{{ url_for('static', filename = 'images/Garlic Bread.jpg') }}" alt="Garlic Bread">
+                <p>Garlic Bread</p>
+                <p id = "price_Garlic_Bread"> $11.99</p>
+                <input type="number" name="" id="Quantity_Garlic_Bread" placeholder="please enter the Quantity"><br>
+                <button id = "btn_Garlic_Bread" onclick="add_to_cart('Garlic Bread',
+                document.getElementById('Quantity_Garlic_Bread').value,
+                11.99)">
+                    Add to Cart
+                </button><br>
+            </div>
+            <div class="circle">
+                <img src= "{{ url_for('static', filename = 'images/aalu cheese croquettes.png') }}" alt="Cheese croquettes">
+                <p>Aalu cheese croquettes</p>
+                <p id = "price_Aaalu_Cheese_Croquettes">$ 11.99</p>
+                <input type="number" name="" id="Quantity_Aalu_Cheese_Croquettes" placeholder="please enter the Quantity"><br>
+                <button id="btn_Aalu_Cheese_Croquettes"
+                onclick="add_to_cart('Aalu Cheese Croquettes',
+                document.getElementById('Quantity_Aalu_Cheese_Croquettes').value,
+                11.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src= "{{ url_for('static', filename = 'images/nachos.jpg') }}" alt="Nachos">
+                <p>Nachos</p>
+                <p id="price_Nachos">$12.99</p>
+                <input type="number" name="" id="Quantity_Nachos" placeholder="Please enter the Quantity"><br>
+                <button id="btn_Nachos" onclick="add_to_cart('Nachos',
+                document.getElementById('Quantity_Nachos').value,
+                12.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src= "{{ url_for('static', filename = 'images/Mexican pizza.jpg') }}" alt="Mexican Pizza">
+                <p>Mexican Pizza</p>
+                <p id="price_Mexican_Pizza">$13.99</p>
+                <input type="number" name="" id="Quantity_Mexican_Pizza" placeholder="Please enter the Quantity"><br>
+                <button id="btn_Mexican_Pizza" onclick="add_to_cart('Mexican Pizza',
+                document.getElementById('Quantity_Mexican_Pizza').value,
+                13.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src= "{{ url_for('static', filename = 'images/Tacos.jpg') }}"  alt="Veg Tacos">
+                <p>Veg Tacos</p>
+                <p id="price_Veg_Tacos">$10.99</p>
+                <input type="number" name="" id="Quantity_Veg_Tacos" placeholder="Please enter the Quantity"><br>
+                <button id="btn_Veg_Tacos" onclick="add_to_cart('Veg Tacos',
+                document.getElementById('Quantity_Veg_Tacos').value,
+                10.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src= "{{ url_for('static', filename = 'images/spinach Dip.jpg') }}" alt="spinach Dip">
+                <p>Spinach Dip</p>
+                <p id="price_spinach_dip">$9.99</p>
+                <input type="number" name="" id="Quantity_spinach_dip" placeholder="Please enter the Quantity"><br>
+                <button id="btn_spinach_dip" onclick="add_to_cart('Spinach Dip',
+                document.getElementById('Quantity_spinach_dip').value,
+                9.99)">Add to Cart</button><br>
+            </div><br>
+            <div class="circle">
+                <img src= "{{ url_for('static', filename = 'images/paneer tikka.jpg') }}"  alt="PaneerTikka">
+                <p>Paneer Tikka</p>
+                <p id="price_Paneer_Tikka">$11.99</p>
+                <input type="number" name="" id="Quantity_Paneer_Tikka" placeholder="Please enter the Quantity"><br>
+                <button id="btn_Paneer_Tikka" onclick="add_to_cart('Paneer Tikka',
+                document.getElementById('Quantity_Paneer_Tikka').value,
+                11.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src= "{{ url_for('static', filename = 'images/cheese balls.jpg') }}" alt="CheeseBalls">
+                <p>Cheese Balls</p>
+                <p id="price_Cheese_Balls">$12.99</p>
+                <input type="number" name="" id="Quantity_Cheese_Balls" placeholder="Please enter the Quantity"><br>
+                <button id="btn_Cheese_Balls" onclick="add_to_cart('Cheese Balls',
+                document.getElementById('Quantity_Cheese_Balls').value,
+                12.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src= "{{ url_for('static', filename = 'images/mushroom.jpg') }}" alt="Mushroom 65">
+                <p>Mushroom 65</p>
+                <p id="price_Mushroom_65">$11.99</p>
+                <input type="number" name="" id="Quantity_Mushroom_65" placeholder="Please enter the Quantity"><br>
+                <button id="btn_Mushroom_65" onclick="add_to_cart('Mushroom 65',
+                document.getElementById('Quantity_Mushroom_65').value,
+                11.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src= "{{ url_for('static', filename = 'images/gobi 65.jpeg') }}"  alt="Gobi 65">
+                <p>Gobi 65</p>
+                <p id="price_Gobi_65">$12.99</p>
+                <input type="number" name="" id="Quantity_Gobi_65" placeholder="Please enter the Quantity"><br>
+                <button id="btn_Paneer_Tikka" onclick="add_to_cart('Gobi 65',
+                document.getElementById('Quantity_Gobi_65').value,
+                12.99)">Add to Cart</button><br>
+            </div>
+        </div>
+
+
+
+        <div>
+            <i><h5>Main course</h5></i>
+        </div>
+        <div class="image-container">
+            <div class="circle">
+                <img src= "{{ url_for('static', filename = 'images/Grilled Polenta.jpg ') }}"  alt="Grilled Polenta">
+                <p>Grilled polenta</p>
+                <p id="price_Grilled_Polenta">$21.99</p>
+                <input type="number" name="" id="Quantity_Grilled_Polenta" placeholder="Please enter the quantity"><br>
+                <button id="btn_Grilled_Polenta"
+                onclick="add_to_cart('Grilled Polenta',
+                document.getElementById('Quantity_Grilled_Polenta').value,
+                21.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/Tofu Rice Bowl.jpg ') }}" alt="Tofu">
+                <p>Tofu rice bowl</p>
+                <p id="price_Tofu_Rice_Bowl">$16.99</p>
+                <input type="number" name="" id="Quantity_Tofu_Rice_Bowl" placeholder="Please enter the Quantity"><br>
+                <button id="btn_Tofu_Rice_Bowl" 
+                onclick="add_to_cart('Tofu Rice Bowl',
+                document.getElementById('Quantity_Tofu_Rice_Bowl').value,
+                16.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/Veg lasagne.jpg ') }}" alt="Veg lasagne">
+                <p>Veg Lasagne</p>
+                <p id="price_Veg_Lasagne">$16.99</p>
+                <input type="number" name="" id="Quantity_Veg_Lasagne" placeholder="Please enter the Quantity"><br>
+                <button id="btn_Veg_Lasagne"
+                onclick="add_to_cart('Veg Lasagne',
+                document.getElementById('Quantity_Veg_Lasagne').value,
+                16.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/Veg manchurian meal.jpg ') }}" alt="veg manchurian meal">
+                <p>Veg manchurian Meal</p>
+                <p id="price_Veg_Manchurian_Meal">$18.99</p>
+                <input type="number" name="" id="Quantity_Veg_Manchurian_Meal" placeholder="Please enter the Quantity"><br>
+                <button id="btn_Veg_Manchurian_Meal" 
+                onclick="add_to_cart('Veg Machurian Meal',
+                document.getElementById('Quantity_Veg_Manchurian_Meal').value,
+                18.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/szechuan paneer.jpg ') }}" alt="szechuan Paneer">
+                <p>Schezwan Paneer Chilli</p>
+                <p id="price_Schezwan_Paneer_Chilli">$19.99</p>
+                <input type="number" name="" id="Quantity_Schezwan_Paneer_Chilli" placeholder="Please enter the Quantity"><br>
+                <button id="btn_Schezwan_Paneer_Chilli"
+                onclick="add_to_cart('Schezwan Paneer Chilli',
+                document.getElementById('Quantity_Schezwan_Paneer_Chilli').value,
+                19.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/burnt garlic fired rice.jpg') }}" alt="Burnt garlic rice">
+                <p>Garlic Fried Rice</p>
+                <p id="price_Garlic_Fried_Rice">$18.99</p>
+                <input type="number" name="" id="Quantity_Garlic_Fried_Rice" placeholder="Please enter the quantity"><br>
+                <button id="btn_Garlic_Fried_Rice"
+                onclick="add_to_cart('Garlic Fried Rice',
+                document.getElementById('Quantity_Garlic_Fried_Rice').value,18.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/lemon.jpg') }}" alt="Lemon risitto">
+                <p>Lemon Risitto</p>
+                <p id="price_Lemon_Risitto">$17.99</p>
+                <input type="number" name="" id="Quantity_Lemon_Risitto" placeholder="Please enter the quantity"><br>
+                <button id="btn_Lemon_Risitto"
+                onclick="add_to_cart('Lemon Risitto',
+                document.getElementById('Quantity_Lemon_Risitto').value, 17.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/mushrm1.jpg') }}" alt="Mushroom risitto">
+                <p>Mushroom Risitto</p>
+                <p id="price_Mushroom_Risitto">$18.99</p>
+                <input type="number" name="" id="Quantity_Mushroom_Risitto" placeholder="Please enter the quantity"><br>
+                <button id="btn_Mushroom_Risitto"
+                onclick="add_to_cart('Mushroom Risitto',
+                document.getElementById('Quantity_Mushroom_Risitto').value, 18.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/panner.jpg') }}" alt="Paneer Butter Masala">
+                <p>Paneer Butter Masala</p>
+                <p id="price_Paneer_Butter_Masala">$19.99</p>
+                <input type="number" name="" id="Quantity_Paneer_Butter_Masala" placeholder="Please enter the quantity"><br>
+                <button id="btn_Paneer_Butter_Masala"
+                onclick="add_to_cart('Paneer Butter Masala',
+                document.getElementById('Quantity_Paneer_Butter_Masala').value, 19.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/poha.jpg') }}" alt="Poha">
+                <p>Poha</p>
+                <p id="price_poha">$15.99</p>
+                <input type="number" name="" id="Quantity_Poha" placeholder="Please enter the quantity"><br>
+                <button id="btn_poha"
+                onclick="add_to_cart('Poha',
+                document.getElementById('Quantity_Poha').value, 15.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/veg-pulao.jpg') }}" alt="Veg Pulav">
+                <p>Veg Pulav</p>
+                <p id="price_Veg_Pulav">$17.99</p>
+                <input type="number" name="" id="Quantity_Veg_Pulav" placeholder="Please enter the quantity"><br>
+                <button id="btn_Veg_Pulav"
+                onclick="add_to_cart('Veg Pulav',
+                document.getElementById('Quantity_Veg_Pulav').value, 17.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/rajma.jpg') }}" alt="Rajma">
+                <p>Rajma</p>
+                <p id="price_Rajma">$17.99</p>
+                <input type="number" name="" id="Quantity_Rajma" placeholder="Please enter the quantity"><br>
+                <button id="btn_Rajma"
+                onclick="add_to_cart('Rajma',
+                document.getElementById('Quantity_Rajma').value, 17.99)">Add to Cart</button><br>
+            </div>
+        </div>
+
+        <div>
+            <i><h4>NON VEGETERIAN</h4></i>
+        </div>
+        <div>
+            <i><h5>Starters</h5></i>
+        </div>
+        <div class="image-container">
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/prawn.jpg') }}" alt="Prawn Pie">
+                <p>Prawn Pie</p>
+                <p id="price_Prawn_Pie">$13.99</p>
+                <input type="number" name="" id="Quantity_Prawn_Pie" placeholder="Please enter the quantity"><br>
+                <button id="btn_Prawn_Pie"
+                onclick="add_to_cart('Prawn Pie', 
+                document.getElementById('Quantity_Prawn_Pie').value, 13.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/chisalad.jpg') }}" alt="Chicken Salad">
+                <p>Chicken Salad</p>
+                <p id="price_Chicken_Salad">$14.99</p>
+                <input type="number" name="" id="Quantity_Chicken_Salad" placeholder="Please enter the quantity"><br>
+                <button id="btn_Chicken_Salad" 
+                onclick="add_to_cart('Chicken Salad',
+                document.getElementById('Quantity_Chicken_Salad').value, 14.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/Smoke bacon.jpg') }}" alt="Bacon">
+                <p>Smoke peppered Bacon</p>
+                <p id="Price_Smoke_Peppered_Bacon">$15.99</p>
+                <input type="number" name="" id="Quantity_Smoke_Peppered_Bacon" placeholder="Please enter the quantity"><br>
+                <button id="btn_Smoke_Peppered_Bacon" 
+                onclick="add_to_cart('Smoke Peppered Bacon',
+                document.getElementById('Quantity_Smoke_Peppered_Bacon').value, 15.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/friedfish.jpg') }}" alt="Fried Fish">
+                <p>Fish Fry</p>
+                <p id="price_Fish_Fry">$14.99</p>
+                <input type="number" name="" id="Quantity_Fish_Fry" placeholder="Please enter the quantity"><br>
+                <button id="btn_Fish_Fry" 
+                onclick="add_to_cart('Fish Fry',
+                document.getElementById('Quantity_Fish_Fry').value, 14.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/Shrimp taco.jpg') }}" alt="Shrimp Taco">
+                <p>Shrimp Taco</p>
+                <p id="price_Shrimp_Taco">$14.99</p>
+                <input type="number" name="" id="Quantity_Shrimp_Taco" placeholder="Please enter the quantity"><br>
+                <button id="btn_Shrimp_Taco" 
+                onclick="add_to_cart('Shrimp Taco',
+                document.getElementById('Quantity_Shrimp_Taco').value, 14.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/Ham salad.jpg') }}" alt="Ham Salad">
+                <p>Ham Salad</p>
+                <p id="Price_Ham_Salad">$14.99</p>
+                <input type="number" name="" id="Quantity_Ham_Salad" placeholder="Please enter the quantity"><br>
+                <button id="btn_Ham_Salad" 
+                onclick="add_to_cart('Ham Salad',
+                document.getElementById('Quantity_Ham_Salad').value, 14.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/ham skewers.jpg') }}" alt="Ham skewers">
+                <p>Ham skewers</p>
+                <p id="Price_Ham_Skewers">$15.99</p>
+                <input type="number" name="" id="Quantity_Ham_Skewers" placeholder="Please enter the quantity"><br>
+                <button id="btn_Ham_Skewers" 
+                onclick="add_to_cart('Ham Skewers',
+                document.getElementById('Quantity_Ham_Skewers').value, 15.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/Butter Steak.jpg') }}" alt="Butter Steak">
+                <p>Butter Steak</p>
+                <p id="price_Butter_Steak">$15.99</p>
+                <input type="number" name="" id="Quantity_Butter_Steak" placeholder="Please enter the quantity"><br>
+                <button id="btn_Butter_Steak" 
+                onclick="add_to_cart('Butter Steak',
+                document.getElementById('Quantity_Butter_Steak').value, 15.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/pakoda.jpg') }}" alt="Chicken pakoda">
+                <p>Chicken Pakoda</p>
+                <p id="price_Chicken_Pakoda">$15.99</p>
+                <input type="number" name="" id="Quantity_Chicken_Pakoda" placeholder="Please enter the quantity"><br>
+                <button id="btn_chicken_pakoda" 
+                onclick="add_to_cart('Chicken Pakoda',
+                document.getElementById('Quantity_Chicken_Pakoda').value, 15.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/chick65.jpg') }}" alt="Chicken 65">
+                <p>Chicken 65</p>
+                <p id="price_chicken_65">$15.99</p>
+                <input type="number" name="" id="Quantity_chicken_65" placeholder="Please enter the quantity"><br>
+                <button id="btn_chicken_65" 
+                onclick="add_to_cart('Chicken 65',
+                document.getElementById('Quantity_chicken_65').value, 15.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/kabab.jpg') }}" alt="Kabab chicken">
+                <p>Chicken kabab</p>
+                <p id="price_Chicken_Kabab">$16.99</p>
+                <input type="number" name="" id="Quantity_Chicken_Kabab" placeholder="Please enter the quantity"><br>
+                <button id="btn_Chicken_Kabab" 
+                onclick="add_to_cart('Chicken kabab',
+                document.getElementById('Quantity_Chicken_Kabab').value, 16.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/chilli.jpg') }}" alt="Chilli chicken">
+                <p>Chilli Chicken</p>
+                <p id="Price_Chilli_Chicken">$16.99</p>
+                <input type="number" name="" id="Quantity_Chilli_chicken" placeholder="Please enter the quantity"><br>
+                <button id="btn_Chilli_chicken" 
+                onclick="add_to_cart('Chilli Chicken',
+                document.getElementById('Quantity_Chilli_chicken').value, 16.99)">Add to Cart</button><br>
+            </div>
+        </div>
+        <div>
+            <i><h5>Main course</h5></i>
+        </div>
+        <div class="image-container">
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/banh mi.jpg') }}" alt="Banh mi">
+                <p>Banh mi</p>
+                <p id="price_Banh_mi">$21.99</p>
+                <input type="number" name="" id="Quantity_Banh_mi" placeholder="Please enter the quantity"><br>
+                <button id="btn_Banh_mi" 
+                onclick="add_to_cart('Banh Mi',
+                document.getElementById('Quantity_Banh_mi').value, 21.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/banh hue.jpg') }}" alt="Bahn hue">
+                <p>Banh hue</p>
+                <p id="price_Banh_hue">$21.99</p>
+                <input type="number" name="" id="Quantity_Banh_hue" placeholder="Please enter the quantity"><br>
+                <button id="btn_Banh_hue" 
+                onclick="add_to_cart('Banh Hue',
+                document.getElementById('Quantity_Banh_hue').value, 21.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/lamb.jpg') }}" alt="Lamb patties">
+                <p>Lamb patties</p>
+                <p id="price_Lamb_Patties">$22.99</p>
+                <input type="number" name="" id="Quantity_Lamb_Patties" placeholder="Please enter the quantity"><br>
+                <button id="btn_Lamb_Patties" 
+                onclick="add_to_cart('Lamb Patties',
+                document.getElementById('Quantity_Lamb_Patties').value, 22.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/galette.jpg') }}" alt="Creep galette">
+                <p>Creep Galette</p>
+                <p id="price_Creep_Galette">$20.99</p>
+                <input type="number" name="" id="Quantity_Creep_Galette" placeholder="Please enter the quantity"><br>
+                <button id="btn_Creep_Galette" 
+                onclick="add_to_cart('Creep Galette',
+                document.getElementById('Quantity_Creep_Galette').value, 20.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/sea food.jpg') }}" alt="Sea food">
+                <p>Sea food</p>
+                <p id="price_sea_food">$23.99</p>
+                <input type="number" name="" id="Quantity_sea_food" placeholder="Please enter the quantity"><br>
+                <button id="btn_sea_food" 
+                onclick="add_to_cart('Sea food',
+                document.getElementById('Quantity_sea_food').value, 23.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/braised lamb.png') }}" alt="braised lamb">
+                <p>Braised Lamb</p>
+                <p id="price_Braised_Lamb">$19.99</p>
+                <input type="number" name="" id="Quantity_Braised_Lamb" placeholder="Please enter the quantity"><br>
+                <button id="btn_Braised_Lamb" 
+                onclick="add_to_cart('Braised Lamb',
+                document.getElementById('Quantity_Braised_Lamb').value, 19.99)">Add to Cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/BBQ chicken.jpg') }}" alt="BBQ chicken">
+                <p>BBQ chicken</p>
+                <p id="price_BBQ_Chicken">$20.99</p>
+                <input type="number" name="" id="Quantity_BBQ_Chicken" placeholder="please enter the quantity"><br>
+                <button id="btn_BBQ_chicken"
+                onclick="add_to_cart('BBQ Chicken', 
+                document.getElementById('Quantity_BBQ_Chicken').value, 20.99)">Add to cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/roasted chicken.jpg') }}" alt="roasted chicken">
+                <p>Roasted Chicken</p>
+                <p id="price_Roasted_Chicken">$21.99</p>
+                <input type="number" name="" id="Quantity_Roasted_Chicken" placeholder="please enter the quantity"><br>
+                <button id="btn_Roasted_Chicken"
+                onclick="add_to_cart('Roasted Chicken', 
+                document.getElementById('Quantity_Roasted_Chicken').value, 21.99)">Add to cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/Chicken Biryani.jpg') }}" alt="Chicken Biryani">
+                <p>Chicken Biryani</p>
+                <p id="price_Chicken_Biryani">$22.99</p>
+                <input type="number" name="" id="Quantity_Chicken_Biryani" placeholder="please enter the quantity"><br>
+                <button id="btn_Chicken_Biryani"
+                onclick="add_to_cart('Chicken Biryani', 
+                document.getElementById('Quantity_Chicken_Biryani').value, 22.99)">Add to cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/Chicken Dum Biryani.jpg') }}" alt="Chicken Dum Biryani">
+                <p>Chicken Dum Biryani</p>
+                <p id="price_Chicken_Dum_Biryani">$23.99</p>
+                <input type="number" name="" id="Quantity_Chicken_Dum_Biryani" placeholder="please enter the quantity"><br>
+                <button id="btn_Chicken_Dum_Biryani"
+                onclick="add_to_cart('Roasted Chicken', 
+                document.getElementById('Quantity_Chicken_Dum_Biryani').value, 23.99)">Add to cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/Mutton Biryani.jpg') }}" alt="Mutton Biryani">
+                <p>Mutton Biryani</p>
+                <p id="price_Mutton_Biryani">$21.99</p>
+                <input type="number" name="" id="Quantity_Mutton_Biryani" placeholder="please enter the quantity"><br>
+                <button id="btn_Mutton_Biryani"
+                onclick="add_to_cart('Mutton Biryani', 
+                document.getElementById('Quantity_Mutton_Biryani').value, 21.99)">Add to cart</button><br>
+            </div>
+            <div class="circle">
+                <img src="{{ url_for('static', filename ='images/Keema biryani.jpg') }}" alt="keema Biryani">
+                <p>Keema Biryani</p>
+                <p id="price_Keema_Biryani">$21.99</p>
+                <input type="number" name="" id="Quantity_Keema_Biryani" placeholder="please enter the quantity"><br>
+                <button id="btn_Keema_Biryani"
+                onclick="add_to_cart('Keema Biryani', 
+                document.getElementById('Quantity_Keema_Biryani').value, 21.99)">Add to cart</button><br>
+            </div>
+        </div>
+
+        <div class="image-container" id="order">
+            <div id="table"></div>
+        </div>
+    </body>
+    <script src="{{ url_for('static', filename = 'JS/cart.js') }}"></script>
+</html>

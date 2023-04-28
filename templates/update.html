@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Update user</title>
+<link rel="stylesheet" type="text/css" href = "{{ url_for('static', filename = 'CSS/user2.css') }}">
+</head>
+<body>
+    <header>
+        <div class="home">
+            <button onclick="history.back()"><span style="font-size: 36px;">«</span></button>
+        </div>
+    </header>    
+<div class="login-box"><img src= "{{ url_for('static', filename = 'images/avatar.png') }}" class="avatar"></img>
+
+<form action= "{{ url_for('updateuserrec') }}" method="POST">
+<p>username</p><input type="text" name="formuser" id = "username" value="{{ data[0] }}" required readonly>
+<p>password</p><input type="password" name="formpwd" id = "userpwd" placeholder="enter password" required>
+<p>Email</p><input type="email" placeholder="enter Email" id="email" name = "formemail" required>
+<p>Mobile number</p><input type="number" placeholder="enter number" id = "MobileNumber" name = "formmobile" required>
+<input type="submit" name="submit" value="Submit">
+</form>
+</div>
+</body>
+
+</html>

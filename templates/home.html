@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GreenLands Restaurants</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename = 'CSS/1.css') }}">
+</head>
+
+<body>
+    <h3 id = "user">{{ msg }}</h3>
+	<div class="navbar">
+        <a href="{{ url_for('logout') }}"> Log Out</a>
+		<a href="{{ url_for('aboutus') }}">About Us</a>
+		<a href="{{ url_for('menu') }}">Menu</a>	
+		<a href= "{{ url_for('profile') }}" >My Profile</a>
+	</div>
+	<div class="row">
+		<div class="logo">
+		<img src="{{ url_for('static', filename = 'images/logo.png')}}"></img>
+	</div>
+</body>
+<!--
+<script src="../JS/getuserdetails.js"></script> -->
+</html>

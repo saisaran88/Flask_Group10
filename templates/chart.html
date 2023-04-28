@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Reviews</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'CSS/chart.css') }}">
+    </head>
+    <body>
+        <div class="navbar">
+            <nav>
+               <a href="{{ url_for('home') }}">Home</a>
+            </nav>
+        </div>
+        <div>
+            <canvas id="myChart" ></canvas>
+            
+        </div>
+        <div><canvas id="chart2"></canvas></div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script src="{{ url_for('static', filename = 'JS/chartjsupdated.js') }}"></script>
+
+    </body>
+</html>

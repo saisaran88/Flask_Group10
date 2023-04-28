@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>
+            My profile
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'CSS/Profile.css') }}">
+    </head>
+    <body>        
+    <header>
+        <div class="home">
+            <button onclick="history.back()"><span style="font-size: 36px;">«</span></button>
+        </div>
+    </header> 
+        <table border = 1>
+            <tbody>
+                <tr>
+                    <td colspan="2" style="align-items: center;">My Profile</td>
+                </tr>
+                <tr>
+                    <td>USER NAME :</td>
+                    <td>{{ data[0] }}</td>
+                </tr>
+                <tr>
+                    <td>EMAIL :</td>
+                    <td>"{{ data[1] }}"</td>
+                </tr>
+                <tr>
+                    <td>PASSWORD :</td>
+                    <TD>"{{ data[2] }}"</TD>
+                </tr>
+                <tr>
+                    <td>MOBILE NUMBER</td>
+                    <td>"{{ data[3] }}"</td>
+                </tr>
+
+                <tr>
+                    <td><a href="{{ url_for('updateuser')}}">Update</a></td>
+                    <td><a href="{{ url_for('deleteuser')}}">Delete</a></td>
+                    
+                </tr>
+            </tbody>
+
+        </table>
+    </body>
+</html>
